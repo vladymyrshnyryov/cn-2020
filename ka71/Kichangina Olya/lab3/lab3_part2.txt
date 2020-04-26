@@ -1,0 +1,127 @@
+No.     Time           Source                Destination           Protocol Length Info
+    248 1.563094       192.168.0.103         192.168.0.1           DNS      91     Standard query 0x489e A signaler-pa.clients6.google.com
+
+Frame 248: 91 bytes on wire (728 bits), 91 bytes captured (728 bits) on interface en0, id 0
+Ethernet II, Src: Apple_70:4e:e0 (60:30:d4:70:4e:e0), Dst: Tp-LinkT_66:4b:e0 (b0:be:76:66:4b:e0)
+Internet Protocol Version 4, Src: 192.168.0.103, Dst: 192.168.0.1
+User Datagram Protocol, Src Port: 63628, Dst Port: 53
+    Source Port: 63628
+    Destination Port: 53
+    Length: 57
+    Checksum: 0xcc70 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 1]
+    [Timestamps]
+Domain Name System (query)
+    Transaction ID: 0x489e
+    Flags: 0x0100 Standard query
+    Questions: 1
+    Answer RRs: 0
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        signaler-pa.clients6.google.com: type A, class IN
+            Name: signaler-pa.clients6.google.com
+            [Name Length: 31]
+            [Label Count: 4]
+            Type: A (Host Address) (1)
+            Class: IN (0x0001)
+    [Response In: 258]
+
+No.     Time           Source                Destination           Protocol Length Info
+    258 1.585200       192.168.0.1           192.168.0.103         DNS      107    Standard query response 0x489e A signaler-pa.clients6.google.com A 172.217.20.202
+
+Frame 258: 107 bytes on wire (856 bits), 107 bytes captured (856 bits) on interface en0, id 0
+Ethernet II, Src: Tp-LinkT_66:4b:e0 (b0:be:76:66:4b:e0), Dst: Apple_70:4e:e0 (60:30:d4:70:4e:e0)
+Internet Protocol Version 4, Src: 192.168.0.1, Dst: 192.168.0.103
+User Datagram Protocol, Src Port: 53, Dst Port: 63628
+    Source Port: 53
+    Destination Port: 63628
+    Length: 73
+    Checksum: 0x7f4d [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 1]
+    [Timestamps]
+Domain Name System (response)
+    Transaction ID: 0x489e
+    Flags: 0x8180 Standard query response, No error
+    Questions: 1
+    Answer RRs: 1
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        signaler-pa.clients6.google.com: type A, class IN
+            Name: signaler-pa.clients6.google.com
+            [Name Length: 31]
+            [Label Count: 4]
+            Type: A (Host Address) (1)
+            Class: IN (0x0001)
+    Answers
+        signaler-pa.clients6.google.com: type A, class IN, addr 172.217.20.202
+    [Request In: 248]
+    [Time: 0.022106000 seconds]
+
+No.     Time           Source                Destination           Protocol Length Info
+   4352 35.896730      192.168.0.103         192.168.0.1           DNS      71     Standard query 0xa4f4 A www.mit.edu
+
+Frame 4352: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface en0, id 0
+Ethernet II, Src: Apple_70:4e:e0 (60:30:d4:70:4e:e0), Dst: Tp-LinkT_66:4b:e0 (b0:be:76:66:4b:e0)
+Internet Protocol Version 4, Src: 192.168.0.103, Dst: 192.168.0.1
+User Datagram Protocol, Src Port: 50830, Dst Port: 53
+    Source Port: 50830
+    Destination Port: 53
+    Length: 37
+    Checksum: 0xbf87 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 4]
+    [Timestamps]
+Domain Name System (query)
+    Transaction ID: 0xa4f4
+    Flags: 0x0100 Standard query
+    Questions: 1
+    Answer RRs: 0
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        www.mit.edu: type A, class IN
+            Name: www.mit.edu
+            [Name Length: 11]
+            [Label Count: 3]
+            Type: A (Host Address) (1)
+            Class: IN (0x0001)
+    [Response In: 4363]
+
+No.     Time           Source                Destination           Protocol Length Info
+   4363 36.016275      192.168.0.1           192.168.0.103         DNS      160    Standard query response 0xa4f4 A www.mit.edu CNAME www.mit.edu.edgekey.net CNAME e9566.dscb.akamaiedge.net A 23.38.92.10
+
+Frame 4363: 160 bytes on wire (1280 bits), 160 bytes captured (1280 bits) on interface en0, id 0
+Ethernet II, Src: Tp-LinkT_66:4b:e0 (b0:be:76:66:4b:e0), Dst: Apple_70:4e:e0 (60:30:d4:70:4e:e0)
+Internet Protocol Version 4, Src: 192.168.0.1, Dst: 192.168.0.103
+User Datagram Protocol, Src Port: 53, Dst Port: 50830
+    Source Port: 53
+    Destination Port: 50830
+    Length: 126
+    Checksum: 0xd892 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 4]
+    [Timestamps]
+Domain Name System (response)
+    Transaction ID: 0xa4f4
+    Flags: 0x8180 Standard query response, No error
+    Questions: 1
+    Answer RRs: 3
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        www.mit.edu: type A, class IN
+            Name: www.mit.edu
+            [Name Length: 11]
+            [Label Count: 3]
+            Type: A (Host Address) (1)
+            Class: IN (0x0001)
+    Answers
+        www.mit.edu: type CNAME, class IN, cname www.mit.edu.edgekey.net
+        www.mit.edu.edgekey.net: type CNAME, class IN, cname e9566.dscb.akamaiedge.net
+        e9566.dscb.akamaiedge.net: type A, class IN, addr 23.38.92.10
+    [Request In: 4352]
+    [Time: 0.119545000 seconds]
