@@ -1,0 +1,18 @@
+No. Time Source Destination Protocol Length Info
+7 9.119904 192.168.1.145 192.168.1.1 DNS 72 Standard query 0x1234 A freevpn.zone
+Frame 7: 72 bytes on wire (576 bits), 72 bytes captured (576 bits) on interface \Device\NPF_{B7786215-CC48-4D6B-89E8-7474D09ACEE0},
+id 0
+Ethernet II, Src: LiteonTe_f1:10:ee (74:df:bf:f1:10:ee), Dst: Tp-LinkT_f1:71:76 (f8:1a:67:f1:71:76)
+Internet Protocol Version 4, Src: 192.168.1.145, Dst: 192.168.1.1
+User Datagram Protocol, Src Port: 50007, Dst Port: 53
+Domain Name System (query)
+Відповідь:
+No. Time Source Destination Protocol Length Info
+8 9.126583 192.168.1.1 192.168.1.145 DNS 193 Standard query response 0x1234 A freevpn.zone
+A 104.27.179.218 A 104.27.178.218 NS elaine.ns.cloudflare.com NS roan.ns.cloudflare.com A 173.245.59.226 A 173.245.58.152
+Frame 8: 193 bytes on wire (1544 bits), 193 bytes captured (1544 bits) on interface \Device\NPF_{B7786215-
+CC48-4D6B-89E8-7474D09ACEE0}, id 0
+Ethernet II, Src: Tp-LinkT_f1:71:76 (f8:1a:67:f1:71:76), Dst: LiteonTe_f1:10:ee (74:df:bf:f1:10:ee)
+Internet Protocol Version 4, Src: 192.168.1.1, Dst: 192.168.1.145
+User Datagram Protocol, Src Port: 53, Dst Port: 50007
+Domain Name System (response)
