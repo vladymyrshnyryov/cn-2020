@@ -1,0 +1,38 @@
+No.     Time           Source                Destination           Protocol Length Info
+    990 18.833278      193.109.246.67        192.168.0.104         HTTP     1296   HTTP/1.1 200 OK  (JPEG JFIF image)
+
+Frame 990: 1296 bytes on wire (10368 bits), 1296 bytes captured (10368 bits) on interface 0
+Ethernet II, Src: Tp-LinkT_5f:b5:0a (f4:f2:6d:5f:b5:0a), Dst: IntelCor_08:d0:13 (ac:2b:6e:08:d0:13)
+Internet Protocol Version 4, Src: 193.109.246.67, Dst: 192.168.0.104
+Transmission Control Protocol, Src Port: 80, Dst Port: 58541, Seq: 409140, Ack: 357, Len: 1242
+[282 Reassembled TCP Segments (410381 bytes): #566(339), #567(1460), #569(1460), #578(1460), #579(1460), #581(1460), #582(1460), #583(1460), #586(1460), #589(1460), #590(1460), #593(1460), #594(1460), #596(1460), #597(1460), #598(1460), #59]
+Hypertext Transfer Protocol
+    HTTP/1.1 200 OK\r\n
+        [Expert Info (Chat/Sequence): HTTP/1.1 200 OK\r\n]
+            [HTTP/1.1 200 OK\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Response Version: HTTP/1.1
+        Status Code: 200
+        [Status Code Description: OK]
+        Response Phrase: OK
+    Server: nginx/1.8.0\r\n
+    Date: Tue, 05 Mar 2019 17:16:43 GMT\r\n
+    Content-Type: image/jpeg\r\n
+    Content-Length: 410042\r\n
+    Last-Modified: Wed, 12 Dec 2012 13:27:37 GMT\r\n
+    Connection: keep-alive\r\n
+    Keep-Alive: timeout=15\r\n
+    ETag: "50c88649-641ba"\r\n
+    Expires: Mon, 25 Mar 2019 17:16:43 GMT\r\n
+    Cache-Control: max-age=1728000\r\n
+    Accept-Ranges: bytes\r\n
+    \r\n
+    [HTTP response 1/2]
+    [Time since request: 1.055522000 seconds]
+    [Request in frame: 556]
+    [Next request in frame: 992]
+    [Next response in frame: 994]
+    File Data: 410042 bytes
+JPEG File Interchange Format
+

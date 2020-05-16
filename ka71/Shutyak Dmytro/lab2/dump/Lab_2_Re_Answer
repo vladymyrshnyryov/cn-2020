@@ -1,0 +1,28 @@
+No.     Time           Source                Destination           Protocol Length Info
+    470 8.378362       128.119.245.12        192.168.0.103         HTTP     293    HTTP/1.1 304 Not Modified 
+
+Frame 470: 293 bytes on wire (2344 bits), 293 bytes captured (2344 bits) on interface 0
+Ethernet II, Src: Tp-LinkT_5f:b5:0a (f4:f2:6d:5f:b5:0a), Dst: IntelCor_08:d0:13 (ac:2b:6e:08:d0:13)
+Internet Protocol Version 4, Src: 128.119.245.12, Dst: 192.168.0.103
+Transmission Control Protocol, Src Port: 80, Dst Port: 62681, Seq: 1, Ack: 490, Len: 239
+Hypertext Transfer Protocol
+    HTTP/1.1 304 Not Modified\r\n
+        [Expert Info (Chat/Sequence): HTTP/1.1 304 Not Modified\r\n]
+            [HTTP/1.1 304 Not Modified\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Response Version: HTTP/1.1
+        Status Code: 304
+        [Status Code Description: Not Modified]
+        Response Phrase: Not Modified
+    Date: Mon, 04 Mar 2019 17:27:00 GMT\r\n
+    Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16 mod_perl/2.0.10 Perl/v5.16.3\r\n
+    Connection: Keep-Alive\r\n
+    Keep-Alive: timeout=5, max=100\r\n
+    ETag: "80-5833f4aa6df5b"\r\n
+    \r\n
+    [HTTP response 1/2]
+    [Time since request: 0.139815000 seconds]
+    [Request in frame: 458]
+    [Next request in frame: 475]
+    [Next response in frame: 496]
