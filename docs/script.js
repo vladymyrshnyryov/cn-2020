@@ -45,13 +45,18 @@ window.addEventListener('load', async () => {
 			content: text,
 		});
 		layout.addEventListener('click', async (event) => {
+			let result;
 			try {
 				const response = await fetch(href);
-				layout.textContent = response.ok ? ok : no;
+				result = response.ok ? ok : no;
 			} catch (error) {
 				console.log(error);
-				layout.textContent = no;
+				result = no;
 			}
+			while (layout.lastElementChild) {
+				layout.removeChild(layout.lastElementChild);
+			}
+			append(layout)(result);
 		});
 		return layout;
 	};
