@@ -43,7 +43,18 @@ window.addEventListener('load', async () => {
 			classList: ["group__link"],
 		});
 		let check = false;
-		try { await fetch(href); check = true; } catch (error) { console.log(error); }
+		try {
+			await fetch(href, {
+				cache: 'no-cache',
+				method: 'GET',
+				mode: 'no-cors',
+				redirect: 'follow',
+				referrerPolicy: 'no-referrer',
+			});
+			check = true;
+		} catch (error) {
+			console.log(error);
+		}
 		check = check ? '+' : '?';
 		return [ item, link, check ];
 	};
