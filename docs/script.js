@@ -86,15 +86,15 @@ window.addEventListener('load', async () => {
 				title: 'check PDF',
 				text: $('i', {
 					attr: { alt: 'pdf', style: "color: grey;", },
-					classList: ["far", "fa-file-pdf", "fa-2x"],
+					classList: ["far", "fa-file-pdf", "fa-1x"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'pdf', style: "color: green;", },
-					classList: ["far", "fa-file-pdf", "fa-2x"],
+					classList: ["far", "fa-file-pdf", "fa-1x"],
 				}),
 				no: $('i', {
 					attr: { alt: 'pdf', style: "color: red;", },
-					classList: ["far", "fa-file-pdf", "fa-2x"],
+					classList: ["far", "fa-file-pdf", "fa-1x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -102,15 +102,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOC',
 				text: $('i', {
 					attr: { alt: 'doc', style: "color: grey;", },
-					classList: ["far", "fa-file-word", "fa-2x"],
+					classList: ["far", "fa-file-alt", "fa-1x"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'doc', style: "color: green;", },
-					classList: ["far", "fa-file-word", "fa-2x"],
+					classList: ["far", "fa-file-alt", "fa-1x"],
 				}),
 				no: $('i', {
 					attr: { alt: 'doc', style: "color: red;", },
-					classList: ["far", "fa-file-word", "fa-2x"],
+					classList: ["far", "fa-file-alt", "fa-1x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -118,15 +118,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOCX',
 				text: $('i', {
 					attr: { alt: 'docx', style: "color: grey;", },
-					classList: ["far", "fa-file-alt", "fa-2x"],
+					classList: ["far", "fa-file-word", "fa-1x"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'docx', style: "color: green;", },
-					classList: ["far", "fa-file-alt", "fa-2x"],
+					classList: ["far", "fa-file-word", "fa-1x"],
 				}),
 				no: $('i', {
 					attr: { alt: 'docx', style: "color: red;", },
-					classList: ["far", "fa-file-alt", "fa-2x"],
+					classList: ["far", "fa-file-word", "fa-1x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
