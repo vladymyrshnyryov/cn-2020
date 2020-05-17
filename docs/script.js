@@ -38,32 +38,43 @@ window.addEventListener('load', async () => {
 	};
 
 
-	const layoutLinkedItem = async (item, href) => {
+	const layoutCheck = (href, text = '?') => {
+		const check = $('span', {
+			content: text,
+			onClick: function (event) {
+				try {
+					const response = await fetch(href, {
+						cache: 'no-cache',
+						method: 'GET',
+						mode: 'no-cors',
+						redirect: 'follow',
+						referrerPolicy: 'no-referrer',
+					});
+					console.log(response);
+					check.textContent = response.status === 200 ? '+' : '-';
+				} catch (error) {
+					console.log(error);
+				}
+			},
+		});
+		return check;
+	};
+
+	const layoutLinkedItem = (item, href, items = []) => {
 		const link = $("a", {
 			attr: { href, target: "_blank", },
 			classList: ["group__link"],
 		});
-		let check = false;
-		try {
-			const response = await fetch(href, {
-				cache: 'no-cache',
-				method: 'GET',
-				mode: 'no-cors',
-				redirect: 'follow',
-				referrerPolicy: 'no-referrer',
-			});
-			check = response.status === 200;
-		} catch (error) {
-			console.log(error);
-		}
-		check = check ? '+' : '?';
-		return [ item, link, check ];
+		return [ item, link, ...items ];
 	};
 
 	const layoutLab = (base, group, student) => async (lab) => {
 		const href = `${base}/tree/master/${group}/${student}/${lab}/`;
+		const checks = [
+			layoutCheck(href),
+		];
 		return $("li", {
-			content: await layoutLinkedItem(lab, href),
+			content: layoutLinkedItem(lab, href, checks),
 		});
 	};
 
@@ -76,7 +87,7 @@ window.addEventListener('load', async () => {
 		return $( 'div', {
 			classList: [ "group__student" ],
 			content: [
-				$("h3", { content: await layoutLinkedItem(student, href), }),
+				$("h3", { content: layoutLinkedItem(student, href), }),
 				$("ol", { content: [ ...labs, ] }),
 			],
 		});
@@ -90,7 +101,7 @@ window.addEventListener('load', async () => {
 		return $("section", {
 			classList: ["group", className],
 			content: [
-				$("h2", { content: await layoutLinkedItem(title, href), }),
+				$("h2", { content: layoutLinkedItem(title, href), }),
 				...students,
 			],
 		});
