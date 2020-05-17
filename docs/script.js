@@ -26,6 +26,8 @@ window.addEventListener('load', async () => {
 
 		if (content instanceof Array) {
 			content.forEach(append(result));
+		} else if (content instanceof HTMLElement) {
+			append(result)(content);
 		} else if (typeof content === 'string') {
 			append(result)(content);
 		}
@@ -141,7 +143,7 @@ window.addEventListener('load', async () => {
 			classList: ["group__check"],
 			content: $('i', {
 				attr: { style: "font-size: 12px;", },
-				classList: ["fa", "fa-check-square"],
+				classList: ["fas", "fa-check-square"],
 			}),
 		});
 		const layout = $('div', {
