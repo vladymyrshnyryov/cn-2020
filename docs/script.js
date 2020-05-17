@@ -47,10 +47,10 @@ window.addEventListener('load', async () => {
 		layout.addEventListener('click', async (event) => {
 			try {
 				const response = await fetch(href, {
-					cache: 'no-cache',
-					credentials: 'include',
-					method: 'GET',
-					mode: 'cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
+					// cache: 'no-cache',
+					// credentials: 'include',
+					// method: 'GET',
+					// mode: 'cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
 					// redirect: 'follow',
 					// referrerPolicy: 'no-referrer',
 				});
@@ -76,20 +76,25 @@ window.addEventListener('load', async () => {
 		return [ item, link, ...items ];
 	};
 
-	const layoutLab = (base, group, student) => async (lab) => {
-		const href = `${base}/tree/master/${group}/${student}/${lab}/`;
+	const layoutLab = (baseRepo, baseSite, group, student) => async (lab) => {
+		const href = `${baseRepo}/tree/master/${group}/${student}/${lab}/`;
 		const checks = [
-			layoutCheck(href, { title: 'lab inited', attr: { 'data-check': true, }, }),
+			layoutCheck(
+				`${baseSite}/tree/master/${group}/${student}/${lab}/`,
+				{
+				title: 'lab inited',
+				attr: { 'data-check': true, },
+			}),
 		];
 		return $("li", {
 			content: layoutLinkedItem(lab, href, ...checks),
 		});
 	};
 
-	const layoutStudent = (base, group) => async (student) => {
-		const href = `${base}/tree/master/${group}/${student}/`;
+	const layoutStudent = (baseRepo, baseSite, group) => async (student) => {
+		const href = `${baseRepo}/tree/master/${group}/${student}/`;
 		let labs = [ "lab1", "lab2", "lab3", "lab4", "lab5" ];
-		labs = labs.map(layoutLab(base, group, student));
+		labs = labs.map(layoutLab(baseRepo, baseSite, group, student));
 		labs = await Promise.all(labs);
 		labs = labs.filter(item => item);
 		const checkAll = $('span', {
@@ -112,9 +117,9 @@ window.addEventListener('load', async () => {
 		return layout;
 	};
 
-	const layoutGroup = async (base, group, title, students, className) => {
-		const href = `${base}/tree/master/${group}/`;
-		students = students.map(layoutStudent(base, group));
+	const layoutGroup = async (baseRepo, baseSite, group, title, students, className) => {
+		const href = `${baseRepo}/tree/master/${group}/`;
+		students = students.map(layoutStudent(baseRepo, baseSite, group));
 		students = await Promise.all(students);
 		students = students.filter(item => item);
 		return $("section", {
@@ -158,7 +163,7 @@ window.addEventListener('load', async () => {
 	groups = groups.filter(item => item);
 	groups = groups.map(async (groupData) => {
 		const { class: className, group, title, students, } = groupData;
-		return await layoutGroup(baseRepo, group, title, students, className);
+		return await layoutGroup(baseRepo, baseSite, group, title, students, className);
 	});
 	groups = await Promise.all(groups);
 	groups = groups.filter(item => item);
