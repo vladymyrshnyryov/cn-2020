@@ -113,7 +113,7 @@ window.addEventListener('load', async () => {
 	groups = groups.filter(item => item);
 	groups = groups.map(async (groupData) => {
 		const { class: className, group, title, students, } = groupData;
-		return await layoutGroup(baseRepo, group, titleName, students, className);
+		return await layoutGroup(baseRepo, group, title, students, className);
 	});
 	groups = await Promise.all(groups);
 	groups = groups.filter(item => item);
