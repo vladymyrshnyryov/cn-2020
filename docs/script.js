@@ -4,7 +4,8 @@ window.addEventListener('load', async () => {
 		if (child instanceof HTMLElement) {
 			parent.appendChild(child);
 		} else if (typeof child === 'string') {
-			parent.textContent = child;
+			append(document.createTextNode(child));
+			// parent.textContent = child;
 		} else {
 			console.log('Unknown element: ', child);
 		}
