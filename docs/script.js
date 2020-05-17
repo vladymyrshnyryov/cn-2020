@@ -144,7 +144,7 @@ window.addEventListener('load', async () => {
 	groups = groups.map(async (group) => {
 		try {
 			const response = await fetch( 
-				`${baseSite}/${group}`,
+				`${baseSite}/docs/${group}/`,
 				// {
 				// 	method: 'GET',
 				// 	cache: 'no-cache',
