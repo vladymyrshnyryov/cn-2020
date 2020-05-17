@@ -84,48 +84,48 @@ window.addEventListener('load', async () => {
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.pdf`, {
 				title: 'check PDF',
 				text: $('i', {
-					attr: { alt: 'pdf', style: "font-size: 12px; color: grey;", },
-					classList: ["far", "fa-file-pdf"],
+					attr: { alt: 'pdf', style: "color: grey;", },
+					classList: ["far", "fa-file-pdf", "fa-2x"],
 				}),
 				ok: $('i', {
-					attr: { alt: 'pdf', style: "font-size: 12px; color: green;", },
-					classList: ["far", "fa-file-pdf"],
+					attr: { alt: 'pdf', style: "color: green;", },
+					classList: ["far", "fa-file-pdf", "fa-2x"],
 				}),
 				no: $('i', {
-					attr: { alt: 'pdf', style: "font-size: 12px; color: red;", },
-					classList: ["far", "fa-file-pdf"],
+					attr: { alt: 'pdf', style: "color: red;", },
+					classList: ["far", "fa-file-pdf", "fa-2x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.doc`, {
 				title: 'check DOC',
 				text: $('i', {
-					attr: { alt: 'doc', style: "font-size: 12px; color: grey;", },
-					classList: ["far", "fa-file-word"],
+					attr: { alt: 'doc', style: "color: grey;", },
+					classList: ["far", "fa-file-word", "fa-2x"],
 				}),
 				ok: $('i', {
-					attr: { alt: 'doc', style: "font-size: 12px; color: green;", },
-					classList: ["far", "fa-file-word"],
+					attr: { alt: 'doc', style: "color: green;", },
+					classList: ["far", "fa-file-word", "fa-2x"],
 				}),
 				no: $('i', {
-					attr: { alt: 'doc', style: "font-size: 12px; color: red;", },
-					classList: ["far", "fa-file-word"],
+					attr: { alt: 'doc', style: "color: red;", },
+					classList: ["far", "fa-file-word", "fa-2x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.docx`, {
 				title: 'check DOCX',
 				text: $('i', {
-					attr: { alt: 'docx', style: "font-size: 12px; color: grey;", },
-					classList: ["far", "fa-file-alt"],
+					attr: { alt: 'docx', style: "color: grey;", },
+					classList: ["far", "fa-file-alt", "fa-2x"],
 				}),
 				ok: $('i', {
-					attr: { alt: 'docx', style: "font-size: 12px; color: green;", },
-					classList: ["far", "fa-file-alt"],
+					attr: { alt: 'docx', style: "color: green;", },
+					classList: ["far", "fa-file-alt", "fa-2x"],
 				}),
 				no: $('i', {
-					attr: { alt: 'docx', style: "font-size: 12px; color: red;", },
-					classList: ["far", "fa-file-alt"],
+					attr: { alt: 'docx', style: "color: red;", },
+					classList: ["far", "fa-file-alt", "fa-2x"],
 				}),
 				attr: { 'data-check': true, },
 			}),
