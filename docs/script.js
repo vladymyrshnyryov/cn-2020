@@ -39,23 +39,21 @@ window.addEventListener('load', async () => {
 
 
 	const layoutCheck = (href, text = '?') => {
-		const check = $('span', {
-			content: text,
-			onClick: async function (event) {
-				try {
-					const response = await fetch(href, {
-						cache: 'no-cache',
-						method: 'GET',
-						mode: 'no-cors',
-						redirect: 'follow',
-						referrerPolicy: 'no-referrer',
-					});
-					console.log(response);
-					check.textContent = response.status === 200 ? '+' : '-';
-				} catch (error) {
-					console.log(error);
-				}
-			},
+		const check = $('span', { content: text, });
+		check.addEventListener('click', async (event) => {
+			try {
+				const response = await fetch(href, {
+					cache: 'no-cache',
+					method: 'GET',
+					mode: 'no-cors',
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+				});
+				console.log(response);
+				check.textContent = response.status === 200 ? '+' : '-';
+			} catch (error) {
+				console.log(error);
+			}
 		});
 		return check;
 	};
