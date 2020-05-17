@@ -41,7 +41,7 @@ window.addEventListener('load', async () => {
 	const layoutCheck = (href, text = '?') => {
 		const check = $('span', {
 			content: text,
-			onClick: function (event) {
+			onClick: async function (event) {
 				try {
 					const response = await fetch(href, {
 						cache: 'no-cache',
