@@ -50,13 +50,15 @@ window.addEventListener('load', async () => {
 					cache: 'no-cache',
 					credentials: 'include',
 					method: 'GET',
-					mode: 'no-cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
+					mode: 'cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
 					// redirect: 'follow',
 					// referrerPolicy: 'no-referrer',
 				});
 				console.log(response);
 				console.log(response.ok);
 				console.log(response.status);
+				console.log(response.type);
+				console.log('---');
 				layout.textContent = response.ok ? '+' : '-';
 			} catch (error) {
 				console.log(error);
