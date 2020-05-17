@@ -45,14 +45,14 @@ window.addEventListener('load', async () => {
 		});
 		let check = false;
 		try {
-			await fetch(href, {
+			const response = await fetch(href, {
 				cache: 'no-cache',
 				method: 'GET',
 				mode: 'no-cors',
 				redirect: 'follow',
 				referrerPolicy: 'no-referrer',
 			});
-			check = true;
+			check = response.status === 200;
 		} catch (error) {
 			console.log(error);
 		}
