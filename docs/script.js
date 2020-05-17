@@ -74,7 +74,7 @@ window.addEventListener('load', async () => {
 	const layoutLab = (base, group, student) => async (lab) => {
 		const href = `${base}/tree/master/${group}/${student}/${lab}/`;
 		const checks = [
-			layoutCheck(href, { title: 'lab inited', 'data-check': true, }),
+			layoutCheck(href, { title: 'lab inited', attr: { 'data-check': true, }, }),
 		];
 		return $("li", {
 			content: layoutLinkedItem(lab, href, ...checks),

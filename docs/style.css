@@ -26,7 +26,9 @@ h2, h3, h4, h5, h6 {
 }
 .group__check {
 	display: inline-block;
-	margin-left: 12px;	
+	margin-left: 12px;
+	padding: 0 4px;
+	cursor: pointer;
 }
 .group__link {
 	display: inline-block;
