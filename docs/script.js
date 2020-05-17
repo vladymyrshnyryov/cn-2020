@@ -68,6 +68,7 @@ window.addEventListener('load', async () => {
 			...content && { content },
 			...options,
 		});
+		return link;
 	};
 
 	const layoutLinkedItem = (item, href, ...items) => {
