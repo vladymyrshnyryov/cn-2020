@@ -63,7 +63,7 @@ window.addEventListener('load', async () => {
 		return layout;
 	};
 
-	const layoutLinkedItem = (item, href, items = []) => {
+	const layoutLinkedItem = (item, href, ...items) => {
 		const link = $("a", {
 			attr: { href, target: "_blank", },
 			classList: ["group__link"],
@@ -77,7 +77,7 @@ window.addEventListener('load', async () => {
 			layoutCheck(href, { title: 'lab inited', 'data-check': true, }),
 		];
 		return $("li", {
-			content: layoutLinkedItem(lab, href, checks),
+			content: layoutLinkedItem(lab, href, ...checks),
 		});
 	};
 
