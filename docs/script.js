@@ -44,22 +44,9 @@ window.addEventListener('load', async () => {
 			classList: ["group__check"],
 			content: text,
 		});
-		console.log('check');
 		layout.addEventListener('click', async (event) => {
 			try {
-				const response = await fetch(href, {
-					// cache: 'no-cache',
-					// credentials: 'include',
-					// method: 'GET',
-					// mode: 'cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
-					// redirect: 'follow',
-					// referrerPolicy: 'no-referrer',
-				});
-				console.log(response);
-				console.log(response.ok);
-				console.log(response.status);
-				console.log(response.type);
-				console.log('---');
+				const response = await fetch(href);
 				layout.textContent = response.ok ? ok : no;
 			} catch (error) {
 				console.log(error);
@@ -69,29 +56,74 @@ window.addEventListener('load', async () => {
 		return layout;
 	};
 
-	const layoutLinkedItem = (item, href, ...items) => {
+	const layoutLink = (href, { classList, content, ...options }) => {
 		const link = $("a", {
 			attr: { href, target: "_blank", },
-			classList: ["group__link"],
+			...classList && { classList },
+			...content && { content },
+			...options,
 		});
+	};
+
+	const layoutLinkedItem = (item, href, ...items) => {
+		const link = layoutLink(href, { classList: ["group__link"] });
 		return [ item, link, ...items ];
 	};
 
 	const layoutLab = (baseRepo, baseSite, group, student) => async (lab) => {
 		const href = `${baseRepo}/tree/master/${group}/${student}/${lab}/`;
+		const hrefDPF = `${baseRepo}/tree/master/${group}/${student}/${lab}/report.pdf`;
+		const hrefDOC = `${baseRepo}/tree/master/${group}/${student}/${lab}/report.doc`;
+		const hrefDOCX = `${baseRepo}/tree/master/${group}/${student}/${lab}/report.docx`;
 		const checks = [
-			layoutCheck(
-				`${baseSite}/${group}/${student}/${lab}/report.pdf`,
-				{ text: 'pdf?', ok: 'pdf+', no: 'pdf-', attr: { 'data-check': true, }, }
-			),
-			layoutCheck(
-				`${baseSite}/${group}/${student}/${lab}/report.doc`,
-				{ text: 'doc?', ok: 'doc+', no: 'doc-', attr: { 'data-check': true, }, }
-			),
-			layoutCheck(
-				`${baseSite}/${group}/${student}/${lab}/report.docx`,
-				{ text: 'docx?', ok: 'docx+', no: 'docx-', attr: { 'data-check': true, }, }
-			),
+			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.pdf`, {
+				title: 'check PDF',
+				text: $('i', {
+					attr: { style: "font-size: 12px; color: grey;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				ok: $('i', {
+					attr: { style: "font-size: 12px; color: green;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				no: $('i', {
+					attr: { style: "font-size: 12px; color: red;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				attr: { 'data-check': true, },
+			}),
+			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.doc`, {
+				title: 'check DOC',
+				text: $('i', {
+					attr: { style: "font-size: 12px; color: grey;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				ok: $('i', {
+					attr: { style: "font-size: 12px; color: green;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				no: $('i', {
+					attr: { style: "font-size: 12px; color: red;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				attr: { 'data-check': true, },
+			}),
+			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.docx`, {
+				title: 'check DOCX',
+				text: $('i', {
+					attr: { style: "font-size: 12px; color: grey;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				ok: $('i', {
+					attr: { style: "font-size: 12px; color: green;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				no: $('i', {
+					attr: { style: "font-size: 12px; color: red;", },
+					classList: ["fa", "fa-check-square"],
+				}),
+				attr: { 'data-check': true, },
+			}),
 		];
 		return $("li", {
 			content: layoutLinkedItem(lab, href, ...checks),
@@ -107,7 +139,10 @@ window.addEventListener('load', async () => {
 		const checkAll = $('span', {
 			attr: { title: 'check all', },
 			classList: ["group__check"],
-			content: '?',
+			content: $('i', {
+				attr: { style: "font-size: 12px;", },
+				classList: ["fa", "fa-check-square"],
+			}),
 		});
 		const layout = $('div', {
 			classList: [ "group__student" ],
@@ -129,13 +164,27 @@ window.addEventListener('load', async () => {
 		students = students.map(layoutStudent(baseRepo, baseSite, group));
 		students = await Promise.all(students);
 		students = students.filter(item => item);
-		return $("section", {
+		const checkAll = $('span', {
+			attr: { title: 'check all', },
+			classList: ["group__check"],
+			content: $('i', {
+				attr: { style: "font-size: 12px;", },
+				classList: ["fa", "fa-check-square"],
+			}),
+		});
+		const layout = $("section", {
 			classList: ["group", className],
 			content: [
-				$("h2", { content: layoutLinkedItem(title, href), }),
+				$("h2", { content: layoutLinkedItem(title, href, checkAll), }),
 				...students,
 			],
 		});
+		checkAll.addEventListener('click', (event) => {
+			for (const check of layout.querySelectorAll('[data-check="true"]')) {
+				check.click();
+			}
+		});
+		return layout;
 	};
 
 
@@ -150,16 +199,7 @@ window.addEventListener('load', async () => {
 	];
 	groups = groups.map(async (file) => {
 		try {
-			const response = await fetch( 
-				`${baseSite}/docs/${file}`,
-				// {
-				// 	method: 'GET',
-				// 	cache: 'no-cache',
-				// 	credentials: 'same-origin', // include, *same-origin, omit
-				// 	redirect: 'follow', // manual, *follow, error
-				// 	referrerPolicy: 'no-referrer', // no-referrer, *client
-				// }
-			);
+			const response = await fetch(`${baseSite}/docs/${file}`);
 			return await response.json();
 		} catch (error) {
 			console.log(`File load ${file}: `, error);
