@@ -79,15 +79,15 @@ window.addEventListener('load', async () => {
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.pdf`, {
 				title: 'check PDF',
 				text: $('i', {
-					attr: { style: "font-size: 12px; color: grey;", },
+					attr: { alt: 'pdf', style: "font-size: 12px; color: grey;", },
 					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				ok: $('i', {
-					attr: { style: "font-size: 12px; color: green;", },
+					attr: { alt: 'pdf', style: "font-size: 12px; color: green;", },
 					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				no: $('i', {
-					attr: { style: "font-size: 12px; color: red;", },
+					attr: { alt: 'pdf', style: "font-size: 12px; color: red;", },
 					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				attr: { 'data-check': true, },
@@ -95,15 +95,15 @@ window.addEventListener('load', async () => {
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.doc`, {
 				title: 'check DOC',
 				text: $('i', {
-					attr: { style: "font-size: 12px; color: grey;", },
+					attr: { alt: 'doc', style: "font-size: 12px; color: grey;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				ok: $('i', {
-					attr: { style: "font-size: 12px; color: green;", },
+					attr: { alt: 'doc', style: "font-size: 12px; color: green;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				no: $('i', {
-					attr: { style: "font-size: 12px; color: red;", },
+					attr: { alt: 'doc', style: "font-size: 12px; color: red;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				attr: { 'data-check': true, },
@@ -111,15 +111,15 @@ window.addEventListener('load', async () => {
 			layoutCheck(`${baseSite}/${group}/${student}/${lab}/report.docx`, {
 				title: 'check DOCX',
 				text: $('i', {
-					attr: { style: "font-size: 12px; color: grey;", },
+					attr: { alt: 'docx', style: "font-size: 12px; color: grey;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				ok: $('i', {
-					attr: { style: "font-size: 12px; color: green;", },
+					attr: { alt: 'docx', style: "font-size: 12px; color: green;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				no: $('i', {
-					attr: { style: "font-size: 12px; color: red;", },
+					attr: { alt: 'docx', style: "font-size: 12px; color: red;", },
 					classList: ["fa", "fa-file-word-o"],
 				}),
 				attr: { 'data-check': true, },
