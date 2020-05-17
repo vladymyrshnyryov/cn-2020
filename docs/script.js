@@ -54,7 +54,9 @@ window.addEventListener('load', async () => {
 					// referrerPolicy: 'no-referrer',
 				});
 				console.log(response);
-				layout.textContent = '+';
+				console.log(response.ok);
+				console.log(response.status);
+				layout.textContent = response.ok ? '+' : '-';
 			} catch (error) {
 				console.log(error);
 				layout.textContent = '-';
