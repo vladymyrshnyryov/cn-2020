@@ -38,12 +38,13 @@ window.addEventListener('load', async () => {
 	};
 
 
-	const layoutCheck = (href, text = '?') => {
-		const check = $('span', {
+	const layoutCheck = (href, { text = '?', title = '?', attr = {}, }) => {
+		const layout = $('span', {
+			attr: { ...attr, title, },
 			classList: ["group__check"],
 			content: text,
 		});
-		check.addEventListener('click', async (event) => {
+		layout.addEventListener('click', async (event) => {
 			try {
 				const response = await fetch(href, {
 					cache: 'no-cache',
@@ -53,12 +54,13 @@ window.addEventListener('load', async () => {
 					referrerPolicy: 'no-referrer',
 				});
 				console.log(response);
-				check.textContent = response.status === 200 ? '+' : '-';
+				layout.textContent = '+';
 			} catch (error) {
 				console.log(error);
+				layout.textContent = '-';
 			}
 		});
-		return check;
+		return layout;
 	};
 
 	const layoutLinkedItem = (item, href, items = []) => {
@@ -72,7 +74,7 @@ window.addEventListener('load', async () => {
 	const layoutLab = (base, group, student) => async (lab) => {
 		const href = `${base}/tree/master/${group}/${student}/${lab}/`;
 		const checks = [
-			layoutCheck(href),
+			layoutCheck(href, { title: 'lab inited', 'data-check': true, }),
 		];
 		return $("li", {
 			content: layoutLinkedItem(lab, href, checks),
@@ -85,13 +87,24 @@ window.addEventListener('load', async () => {
 		labs = labs.map(layoutLab(base, group, student));
 		labs = await Promise.all(labs);
 		labs = labs.filter(item => item);
-		return $( 'div', {
+		const checkAll = $('span', {
+			attr: { title: 'check all', },
+			classList: ["group__check"],
+			content: '?',
+		});
+		const layout = $('div', {
 			classList: [ "group__student" ],
 			content: [
-				$("h3", { content: layoutLinkedItem(student, href), }),
+				$("h3", { content: layoutLinkedItem(student, href, checkAll), }),
 				$("ol", { content: [ ...labs, ] }),
 			],
 		});
+		checkAll.addEventListener('click', (event) => {
+			for (const check of layout.querySelectorAll('[data-check="true"]')) {
+				check.click();
+			}
+		});
+		return layout;
 	};
 
 	const layoutGroup = async (base, group, title, students, className) => {
