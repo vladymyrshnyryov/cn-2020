@@ -42,7 +42,9 @@ window.addEventListener('load', async () => {
 			attr: { href, target: "_blank", },
 			classList: ["group__link"],
 		});
-		return [ item, link, ];
+		let check = false;
+		try { await fetch(href); check = true; } catch (error) { console.log(error) }
+		return [ item, link, check ? '+' : '?' ];
 	};
 
 	const layoutLab = (base, group, student) => async (lab) => {
