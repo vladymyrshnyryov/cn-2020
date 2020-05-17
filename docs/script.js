@@ -37,7 +37,7 @@ window.addEventListener('load', async () => {
 	};
 
 
-	const layoutLinkedItem => (item, href) => {
+	const layoutLinkedItem = (item, href) => {
 		const link = $("a", {
 			attr: { href, target: "_blank", },
 			classList: ["group__link"],
