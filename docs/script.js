@@ -48,8 +48,9 @@ window.addEventListener('load', async () => {
 			try {
 				const response = await fetch(href, {
 					cache: 'no-cache',
+					credentials: 'include',
 					method: 'GET',
-					mode: 'no-cors',
+					mode: 'no-cors',  // same-origin | cors | cors-with-forced-preflight | no-cors
 					// redirect: 'follow',
 					// referrerPolicy: 'no-referrer',
 				});
