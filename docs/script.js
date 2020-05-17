@@ -44,7 +44,8 @@ window.addEventListener('load', async () => {
 		});
 		let check = false;
 		try { await fetch(href); check = true; } catch (error) { console.log(error); }
-		return [ item, link, check ? '+' : '?' ];
+		check = check ? '+' : '?';
+		return [ item, link, check ];
 	};
 
 	const layoutLab = (base, group, student) => async (lab) => {
