@@ -141,10 +141,10 @@ window.addEventListener('load', async () => {
 		'group-ka74.json',
 		'group-ka77.json',
 	];
-	groups = groups.map(async (group) => {
+	groups = groups.map(async (file) => {
 		try {
 			const response = await fetch( 
-				`${baseSite}/docs/${group}/`,
+				`${baseSite}/docs/${file}`,
 				// {
 				// 	method: 'GET',
 				// 	cache: 'no-cache',
@@ -155,7 +155,7 @@ window.addEventListener('load', async () => {
 			);
 			return await response.json();
 		} catch (error) {
-			console.log(`File load ${group}: `, error);
+			console.log(`File load ${file}: `, error);
 			return false;
 		}
 	} );
