@@ -50,8 +50,8 @@ window.addEventListener('load', async () => {
 					cache: 'no-cache',
 					method: 'GET',
 					mode: 'no-cors',
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
+					// redirect: 'follow',
+					// referrerPolicy: 'no-referrer',
 				});
 				console.log(response);
 				layout.textContent = '+';
