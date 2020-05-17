@@ -143,7 +143,7 @@ window.addEventListener('load', async () => {
 		labs = await Promise.all(labs);
 		labs = labs.filter(item => item);
 		const checkAll = $('span', {
-			attr: { title: 'check all', },
+			attr: { title: 'check all labs', },
 			classList: ["group__check"],
 			content: $('i', {
 				attr: { style: "font-size: 12px;", },
@@ -171,7 +171,7 @@ window.addEventListener('load', async () => {
 		students = await Promise.all(students);
 		students = students.filter(item => item);
 		const checkAll = $('span', {
-			attr: { title: 'check all', },
+			attr: { title: 'check all students', },
 			classList: ["group__check"],
 			content: $('i', {
 				attr: { style: "font-size: 12px;", },
