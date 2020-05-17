@@ -37,20 +37,20 @@ window.addEventListener('load', async () => {
 	};
 
 
-	const layoutLinkedItem = (item, href) => {
+	const layoutLinkedItem = async (item, href) => {
 		const link = $("a", {
 			attr: { href, target: "_blank", },
 			classList: ["group__link"],
 		});
 		let check = false;
-		try { await fetch(href); check = true; } catch (error) { console.log(error) }
+		try { await fetch(href); check = true; } catch (error) { console.log(error); }
 		return [ item, link, check ? '+' : '?' ];
 	};
 
 	const layoutLab = (base, group, student) => async (lab) => {
 		const href = `${base}/tree/master/${group}/${student}/${lab}/`;
 		return $("li", {
-			content: layoutLinkedItem(lab, href),
+			content: await layoutLinkedItem(lab, href),
 		});
 	};
 
@@ -63,7 +63,7 @@ window.addEventListener('load', async () => {
 		return $( 'div', {
 			classList: [ "group__student" ],
 			content: [
-				$("h3", { content: layoutLinkedItem(student, href), }),
+				$("h3", { content: await layoutLinkedItem(student, href), }),
 				$("ol", { content: [ ...labs, ] }),
 			],
 		});
@@ -77,7 +77,7 @@ window.addEventListener('load', async () => {
 		return $("section", {
 			classList: ["group", className],
 			content: [
-				$("h2", { content: layoutLinkedItem(title, href), }),
+				$("h2", { content: await layoutLinkedItem(title, href), }),
 				...students,
 			],
 		});
