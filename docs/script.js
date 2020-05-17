@@ -38,9 +38,9 @@ window.addEventListener('load', async () => {
 	};
 
 
-	const layoutCheck = (href, { text = '?', title = '?', attr = {}, }) => {
+	const layoutCheck = (href, { title, text = '?', ok = '+', no = '-', attr = {}, }) => {
 		const layout = $('span', {
-			attr: { ...attr, title, },
+			attr: { ...attr, ...title && { title }, },
 			classList: ["group__check"],
 			content: text,
 		});
@@ -59,10 +59,10 @@ window.addEventListener('load', async () => {
 				console.log(response.status);
 				console.log(response.type);
 				console.log('---');
-				layout.textContent = response.ok ? '+' : '-';
+				layout.textContent = response.ok ? ok : no;
 			} catch (error) {
 				console.log(error);
-				layout.textContent = '-';
+				layout.textContent = no;
 			}
 		});
 		return layout;
@@ -80,11 +80,17 @@ window.addEventListener('load', async () => {
 		const href = `${baseRepo}/tree/master/${group}/${student}/${lab}/`;
 		const checks = [
 			layoutCheck(
-				`${baseSite}/tree/master/${group}/${student}/${lab}/`,
-				{
-				title: 'lab inited',
-				attr: { 'data-check': true, },
-			}),
+				`${baseSite}/${group}/${student}/${lab}/report.pdf`,
+				{ text: 'pdf?', ok: 'pdf+', no: 'pdf-', attr: { 'data-check': true, }, }
+			),
+			layoutCheck(
+				`${baseSite}/${group}/${student}/${lab}/report.doc`,
+				{ text: 'doc?', ok: 'doc+', no: 'doc-', attr: { 'data-check': true, }, }
+			),
+			layoutCheck(
+				`${baseSite}/${group}/${student}/${lab}/report.docx`,
+				{ text: 'docx?', ok: 'docx+', no: 'docx-', attr: { 'data-check': true, }, }
+			),
 		];
 		return $("li", {
 			content: layoutLinkedItem(lab, href, ...checks),
