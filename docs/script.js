@@ -80,15 +80,15 @@ window.addEventListener('load', async () => {
 				title: 'check PDF',
 				text: $('i', {
 					attr: { style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				ok: $('i', {
 					attr: { style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				no: $('i', {
 					attr: { style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-pdf-o"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -96,15 +96,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOC',
 				text: $('i', {
 					attr: { style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				ok: $('i', {
 					attr: { style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				no: $('i', {
 					attr: { style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -112,15 +112,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOCX',
 				text: $('i', {
 					attr: { style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				ok: $('i', {
 					attr: { style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				no: $('i', {
 					attr: { style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-check-square"],
+					classList: ["fa", "fa-file-word-o"],
 				}),
 				attr: { 'data-check': true, },
 			}),
