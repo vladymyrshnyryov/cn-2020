@@ -26,9 +26,7 @@ window.addEventListener('load', async () => {
 
 		if (content instanceof Array) {
 			content.forEach(append(result));
-		} else if (content instanceof HTMLElement) {
-			append(result)(content);
-		} else if (typeof content === 'string') {
+		} else {
 			append(result)(content);
 		}
 
