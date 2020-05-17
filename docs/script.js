@@ -44,6 +44,7 @@ window.addEventListener('load', async () => {
 			classList: ["group__check"],
 			content: text,
 		});
+		console.log('check');
 		layout.addEventListener('click', async (event) => {
 			try {
 				const response = await fetch(href, {
