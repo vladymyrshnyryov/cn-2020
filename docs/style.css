@@ -26,9 +26,10 @@ h2, h3, h4, h5, h6 {
 }
 .group__check {
 	display: inline-block;
-	margin-left: 0 12px;	
+	margin-left: 12px;	
 }
 .group__link {
+	display: inline-block;
 	margin-left: 12px;
 }
 .group__link::before {
