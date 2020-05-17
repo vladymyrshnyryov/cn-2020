@@ -39,7 +39,10 @@ window.addEventListener('load', async () => {
 
 
 	const layoutCheck = (href, text = '?') => {
-		const check = $('span', { content: text, });
+		const check = $('span', {
+			classList: ["group__check"],
+			content: text,
+		});
 		check.addEventListener('click', async (event) => {
 			try {
 				const response = await fetch(href, {
