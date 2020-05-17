@@ -12,7 +12,7 @@ window.addEventListener('load', async () => {
 	};
 
 	const $ = (tag, { attr, classList, parent, content, }) => {
-		const result = document.createElement( tag );
+		const result = document.createElement(tag);
 
 		if (attr instanceof Object) {
 			for (const [key, value] of Object.entries(attr)) {
@@ -80,15 +80,15 @@ window.addEventListener('load', async () => {
 				title: 'check PDF',
 				text: $('i', {
 					attr: { alt: 'pdf', style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-file-pdf-o"],
+					classList: ["far", "fa-file-pdf"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'pdf', style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-file-pdf-o"],
+					classList: ["far", "fa-file-pdf"],
 				}),
 				no: $('i', {
 					attr: { alt: 'pdf', style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-file-pdf-o"],
+					classList: ["far", "fa-file-pdf"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -96,15 +96,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOC',
 				text: $('i', {
 					attr: { alt: 'doc', style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-word"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'doc', style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-word"],
 				}),
 				no: $('i', {
 					attr: { alt: 'doc', style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-word"],
 				}),
 				attr: { 'data-check': true, },
 			}),
@@ -112,15 +112,15 @@ window.addEventListener('load', async () => {
 				title: 'check DOCX',
 				text: $('i', {
 					attr: { alt: 'docx', style: "font-size: 12px; color: grey;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-alt"],
 				}),
 				ok: $('i', {
 					attr: { alt: 'docx', style: "font-size: 12px; color: green;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-alt"],
 				}),
 				no: $('i', {
 					attr: { alt: 'docx', style: "font-size: 12px; color: red;", },
-					classList: ["fa", "fa-file-word-o"],
+					classList: ["far", "fa-file-alt"],
 				}),
 				attr: { 'data-check': true, },
 			}),
