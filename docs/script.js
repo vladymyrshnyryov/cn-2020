@@ -44,7 +44,13 @@ window.addEventListener('load', async () => {
 			classList: ["group__check"],
 			content: text,
 		});
+		const remove = parent => {
+			while (parent && parent.lastElementChild) {
+				parent.removeChild(parent.lastElementChild);
+			}
+		};
 		layout.addEventListener('click', async (event) => {
+			remove(layout);
 			let result;
 			try {
 				const response = await fetch(href);
@@ -53,9 +59,7 @@ window.addEventListener('load', async () => {
 				console.log(error);
 				result = no;
 			}
-			while (layout.lastElementChild) {
-				layout.removeChild(layout.lastElementChild);
-			}
+			remove(layout);
 			append(layout)(result);
 		});
 		return layout;
