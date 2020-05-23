@@ -51,6 +51,7 @@ window.addEventListener('load', async () => {
 		};
 		layout.addEventListener('click', async (event) => {
 			remove(layout);
+			append(layout)(text);
 			let result;
 			try {
 				const response = await fetch(href);
