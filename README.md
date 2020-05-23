@@ -2,6 +2,7 @@
 
 Repository structure is described in readme.txt
 
-https://github.com/KirstieJane/STEMMRoleModels/wiki/Syncing-your-fork-to-the-original-repository-via-the-browser
+Пояснение как работать с github.com
+- http://gearmobile.github.io/git/fork-github/
+- https://github.com/KirstieJane/STEMMRoleModels/wiki/Syncing-your-fork-to-the-original-repository-via-the-browser
 
-http://gearmobile.github.io/git/fork-github/
